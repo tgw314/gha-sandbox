@@ -1,0 +1,29 @@
+name: Build Kernel
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-kernel:
+    name: Build Kernel
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Build
+        uses: dabao1955/kernel_build_action@main
+        with:
+          kernel-url: https://github.com/diphons/kernel_xiaomi_sm8635
+          kernel-branch: main
+
+          # kernel-url: https://github.com/ahmedtohamy1/kernel_xiaomi_peridot
+          # kernel-branch: stable-r1
+
+          config: peridot_defconfig
+          arch: arm64
+          aosp-gcc: true
+          aosp-clang: true
+          # android-version: 15
+          aosp-clang-version: r522817
+          ccache: true
+          depth: 1
+          anykernel3: true
+          extra-cmd: LD=ld.lld
