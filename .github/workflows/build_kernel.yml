@@ -26,4 +26,4 @@ jobs:
           ccache: true
           depth: 1
           anykernel3: true
-          extra-cmd: LD=ld.lld
+          extra-cmd: CONFIG_CC_STACKPROTECTOR=y CONFIG_STACKPROTECTOR=y CONFIG_STACKPROTECTOR_STRONG=y
